@@ -74,9 +74,11 @@ php artisan serve
 Aplikasi akan berjalan di http://127.0.0.1:8000
 
 Credentials
-Berikut adalah akun yang dapat digunakan untuk login admin:
-email : admin@footvibe.com
-password : admin123
+Berikut adalah akun yang dapat digunakan untuk login:
+1. Admin:
+- email : admin@footvibe.com
+- password : admin123
+2. User / Customer bisa register sendiri melalui halaman register.
 
 Akses Panel Admin di: http://127.0.0.1:8000/admin
 
