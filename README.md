@@ -28,7 +28,7 @@ composer install
 npm install
 ```
 
-2. Environment Configuration
+### 2. Environment Configuration
 Salin file .env.example dan sesuaikan dengan konfigurasi lokal kamu:
 
 ```bash
@@ -51,12 +51,12 @@ Generate App Key:
 php artisan key:generate
 ```
 
-3. Database Setup
+### 3. Database Setup
 Buat database baru bernama foot_vibe di phpMyAdmin.
 
 Impor file foot_vibe.sql yang tersedia di direktori proyek.
 
-4. Storage & Asset Setup
+### 4. Storage & Asset Setup
 Buat symlink untuk akses gambar dan compile aset frontend:
 ```bash
 # Link storage untuk foto produk/profil
@@ -66,7 +66,7 @@ php artisan storage:link
 npm run dev
 ```
 
-5. Running Application
+### 5. Running Application
 Jalankan aplikasi di terminal:
 ```bash
 php artisan serve
