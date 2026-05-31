@@ -19,6 +19,21 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
 if (isset($_SERVER['VERCEL_URL']) || isset($_ENV['VERCEL_URL'])) {
     $app->useStoragePath('/tmp');
+
+    // Paksa Laravel membuat folder-folder wajib ini jika belum ada di dalam /tmp Vercel
+    $tmpDirectories = [
+        '/tmp/app',
+        '/tmp/framework/views',
+        '/tmp/framework/cache/data',
+        '/tmp/framework/sessions',
+        '/tmp/logs'
+    ];
+
+    foreach ($tmpDirectories as $dir) {
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+    }
 }
 
 return $app;
