@@ -54,8 +54,13 @@
                     <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" id="avatarForm">
                         @csrf
                         @method('PUT')
+
+                        <input type="hidden" name="name" value="{{ $user->name }}">
+                        <input type="hidden" name="phone_number" value="{{ $user->phone_number }}">
+                        <input type="hidden" name="date_of_birth" value="{{ $user->date_of_birth }}">
+                        <input type="hidden" name="address" value="{{ $user->address }}">
                         <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-gray-800 to-black p-1 shadow-xl mb-5 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
-                            <img id="preview_image" src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80' }}" alt="Avatar" class="w-full h-full object-cover rounded-full border-2 border-black/50 bg-white">
+                            <img id="preview_image" src="{{ $user->profile_photo ? asset('storage/' . $user->profile_photo) : 'https://images.unsplash.com/vector-1742875355318-00d715aec3e8?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}" alt="Avatar" class="w-full h-full object-cover rounded-full border-2 border-black/50 bg-white">
                             <label for="profile_photo" class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white text-[10px] font-black tracking-widest opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer rounded-full">
                                 <i class="fa-solid fa-camera text-xl mb-1.5 text-[#9CE300]"></i>
                                 CHANGE

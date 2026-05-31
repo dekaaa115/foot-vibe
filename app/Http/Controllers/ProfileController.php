@@ -32,9 +32,12 @@ class ProfileController extends Controller
 
         // Logika Unggah Foto
         if ($request->hasFile('profile_photo')) {
-            if ($user->profile_photo) {
+            // Hapus foto lama jika ada
+            if ($user->profile_photo && \Illuminate\Support\Facades\Storage::exists('public/' . $user->profile_photo)) {
                 \Illuminate\Support\Facades\Storage::delete('public/' . $user->profile_photo);
             }
+
+            // Upload foto baru
             $path = $request->file('profile_photo')->store('profile-photos', 'public');
             $user->profile_photo = $path;
         }
