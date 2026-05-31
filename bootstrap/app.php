@@ -17,4 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })->create();
 
-    
+    if (isset($_SERVER['VERCEL_URL']) || isset($_ENV['VERCEL_URL'])) {
+        $app->useStoragePath('/tmp');
+    }
+
+return $app;
