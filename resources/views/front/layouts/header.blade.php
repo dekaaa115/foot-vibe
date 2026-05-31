@@ -14,7 +14,7 @@
     </div>
 
     <div class="flex items-center gap-6 text-gray-900 text-xl relative z-10">
-        <a href="https://wa.me/6281234567890?text=Halo%20Admin%20FootVibe,%20saya%20butuh%20bantuan%20terkait%20produk%20sneakers..." class="hover:scale-110 transition-transform duration-200"><i class="fa-solid fa-headset"></i></a>
+        <a href="https://wa.me/6285175395314?text=Halo%20Admin%20FootVibe,%20saya%20butuh%20bantuan%20terkait%20produk%20sneakers..." class="hover:scale-110 transition-transform duration-200"><i class="fa-solid fa-headset"></i></a>
         <a href="{{ route('orders') }}" class="hover:scale-110 transition-transform duration-200"><i class="fa-solid fa-truck-fast"></i></a>
         <a href="{{ route('cart.index') }}" class="relative hover:scale-110 transition-transform duration-200 cursor-pointer block">
             <i class="fa-solid fa-cart-shopping"></i>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class ProfileController extends Controller
 {
@@ -56,6 +58,26 @@ class ProfileController extends Controller
         $orders = $user->orders()->with('items.product')->latest()->get();
 
         return view('front.orders', compact('user', 'orders'));
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', 'confirmed', 'min:8'],
+        ], [
+            'current_password.current_password' => 'Password lama yang kamu masukkan salah.',
+            'password.confirmed' => 'Konfirmasi password baru tidak cocok.',
+            'password.min' => 'Password baru harus minimal 8 karakter.'
+        ]);
+
+        $user = $request->user();
+
+        $user->update([
+            'password' => \Illuminate\Support\Facades\Hash::make($request->password),
+        ]);
+
+        return back()->with('success', 'Password akun kamu berhasil diperbarui!');
     }
 
     public function logout(Request $request)

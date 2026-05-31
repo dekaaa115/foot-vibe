@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-2 mb-4">
-                    <i class="fa-solid fa-shoe-prints text-3xl text-[#9CE300]"></i>
+                    <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="logo" class="w-14 h-14">
                     <span class="font-black text-3xl italic tracking-tighter text-gray-900">FootVibe</span>
                 </div>
                 <p class="text-sm text-gray-500 font-medium max-w-sm leading-relaxed">

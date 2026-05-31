@@ -53,9 +53,9 @@
                             </a>
                         </li>
                         <li>
-                            <button type="button" onclick="alert('Halaman Settings sedang dalam tahap pengembangan.')" class="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-white/50 hover:text-gray-900 rounded-2xl font-semibold text-sm transition border-b border-gray-200/50 mb-1 pb-4">
+                            <a href="{{ route('profile') }}?tab=settings" class="w-full flex items-center gap-3 px-4 py-3 text-gray-500 hover:bg-white/50 hover:text-gray-900 rounded-2xl font-semibold text-sm transition border-b border-gray-200/50 mb-1 pb-4">
                                 <i class="fa-solid fa-gear text-gray-400 w-5"></i> Settings
-                            </button>
+                            </a>
                         </li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST" class="pt-1">

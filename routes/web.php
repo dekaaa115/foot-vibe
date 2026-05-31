@@ -44,6 +44,15 @@ Route::middleware('auth')->group(function () {
     // Auth & Profile Actions
     Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+    Route::get('/forgot-password', function () {
+    return view('front.forgot-password');
+})->name('password.request');
+
+    Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
+    Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
+    Route::get('/reset-password/{token}', [AuthController::class, 'showResetPasswordForm'])->name('password.reset');
+    Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.store');
 
     // Orders & Checkout
     Route::get('/orders', [ProfileController::class, 'orders'])->name('orders');
