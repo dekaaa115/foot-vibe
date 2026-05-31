@@ -11,16 +11,16 @@ $app = Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->shouldRenderJsonWhen(function ($request, \Throwable $e) {
+            return true;
+        });
     })->create();
 
 if (isset($_SERVER['VERCEL_URL']) || isset($_ENV['VERCEL_URL'])) {
     $app->useStoragePath('/tmp');
 
-    // Paksa Laravel membuat folder-folder wajib ini jika belum ada di dalam /tmp Vercel
     $tmpDirectories = [
         '/tmp/app',
         '/tmp/framework/views',
